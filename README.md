@@ -2,7 +2,7 @@
 Git repo for https://www.npmjs.com/package/ngx-o-select
 
 ### Presentation
-![Gif presentation](https://raw.githubusercontent.com/andigvozdjar/ngx-o-select/master/ngx-o-select/src/assets/select-presentation.gif)
+![Gif presentation](https://raw.githubusercontent.com/andigvozdjar/ngx-o-select/master/projects/ngx-o-select/src/assets/select-presentation.gif)
 
 ## complex angular select component
 

@@ -4,7 +4,7 @@ Tested with angular 12, 13
 required @angular/material > 12
 
 ### Presentation
-![Gif presentation](https://raw.githubusercontent.com/andigvozdjar/ngx-o-select/master/ngx-o-select/src/assets/select-presentation.gif)
+![Gif presentation](https://raw.githubusercontent.com/andigvozdjar/ngx-o-select/master/projects/ngx-o-select/src/assets/select-presentation.gif)
 
 ## complex angular select component
 
