@@ -2,7 +2,7 @@
   "name": "ngx-o-select",
   "description": "Complex angular material select component with search, virtual scrool pagination, groupBy functionality, multiple select, ",
   "keywords": ["angular select component", "material select", "angular material select", "complex select component", "complete select component"],
-  "version": "0.0.8",
+  "version": "0.0.11",
   "bugs": {
     "email": "andigvozdjar@gmail.com"
   },
@@ -19,6 +19,7 @@
     "type": "git",
     "url": "https://github.com/andigvozdjar/ngx-o-select"
   },
+  "license" : "BSD-3-Clause",
   "funding": [
     {
       "type" : "crypto bitcoin wallet",
