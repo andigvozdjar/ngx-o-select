@@ -1,28 +1,48 @@
-# NgxOSelect
+### Info
+Git repo for https://www.npmjs.com/package/ngx-o-select
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+### Presentation
+![Gif presentation](https://raw.githubusercontent.com/andigvozdjar/ngx-o-select/master/ngx-o-select/src/assets/select-presentation.gif)
 
-## Development server
+## complex angular select component
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> multi-values, paginated, searchable, required validation, hint, server side dataSource
+> required @angular/material: ^12.2.7 - tested with it
 
-## Code scaffolding
+### git https://github.com/andigvozdjar/ngx-o-select
+## Install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm i ngx-o-select --save
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. Import NgxOSelectModule in Your module
 
-## Running unit tests
+### 2. In Ts
+```
+public oSelectDataSource!: OSelectOptionsSource<YourClass>;
+```
+```
+ this.oSelectDataSource: OSelectOptionsSource<YourClass> = {
+      paginate: true,
+      pageSize: 15,
+      store: {
+        key: 'id;,
+        load: (loadOptions: LoadOptions) => { ... return Observable<Page<YourClass>> },
+        byKey: (id: string) => { ... return Observable<YourClass> }
+      }
+ }
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 3. In HTML
+```
+<o-select [label]="'Type'" displayExpr="name" valueExpr="id" name="type"
+  [required]="true" [selectAll]="false" [searchEnabled]="true"
+  [form]="ngForm" [(value)]="formData.type" [dataSource]="oSelectDataSource">
+</o-select>
+```
+### 4. Result from "Presentation"
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# ngx-o-select
+### For any suggestions/help You could ask me on andigvozdjar@gmail.com

@@ -4,18 +4,19 @@ Tested with angular 12, 13
 required @angular/material > 12
 
 ### Presentation
-![Gif presentation](https://s10.gifyu.com/images/Animation23e7afe21ef7792b7.gif)
+![Gif presentation](https://raw.githubusercontent.com/andigvozdjar/ngx-o-select/master/ngx-o-select/src/assets/select-presentation.gif)
 
 ## complex angular select component
 
 > multi-values, paginated, searchable, required validation, hint, server side dataSource
 > required @angular/material: ^12.2.7 - tested with it
+
+### git https://github.com/andigvozdjar/ngx-o-select
 ## Install
 
 ```
 npm i ngx-o-select --save
 ```
-
 
 ## Usage
 
@@ -46,7 +47,7 @@ public oSelectDataSource!: OSelectOptionsSource<YourClass>;
 ```
 ### 4. Result from "Presentation"
 
-## For any suggestions/help You could ask me on andigvozdjar@gmail.com
+### For any suggestions/help You could ask me on andigvozdjar@gmail.com
 ## Localization
 
 Default global localization
@@ -149,6 +150,7 @@ export class OSelectIntService extends SelectLocalization {
 | @Input() requiredMessage: string | false | Message in <mat-error> |
 | @Input() valueExpr: string | true | key of T emitted as value |
 | @Input() groupBy: string | false | key of T that groups mat option |
+| @Input() displayFunc: Function | false | function that will call from html to display select values |
 | @Input() ungroupedTranslation: string | false | translation of ungrouped array |
 | @Input() form: string | false | For custom errorStateMatcher ( for displaying error after form is submitted and touched) |
 | @Input() readOnly: boolean = false |  | Whether the component is disabled |

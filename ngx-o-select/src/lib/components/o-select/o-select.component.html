@@ -2,7 +2,10 @@
   <mat-label>{{ label }}</mat-label>
   <mat-chip-list class="select-chip" [ngModel]="viewValues" *ngIf="multiple && viewValues?.length > 0" [required]="required" #chipListItems [errorStateMatcher]="matcher" multiple>
       <mat-chip *ngFor="let item of viewValues" color="accent" [selectable]="false" [removable]="true" (removed)="removeSelectedItem(item[valueExpr])">
-          {{item[displayExpr]}}
+          <ng-container *ngIf="displayFunc; else displayExprMultipleTemplate">
+            <span [innerHtml]='displayFunc(item)'></span>
+          </ng-container>
+          <ng-template #displayExprMultipleTemplate>{{ item[displayExpr] }}</ng-template>  
           <button matChipRemove>
           <mat-icon>cancel</mat-icon>
           </button>
@@ -30,7 +33,10 @@
 
           <ng-template #nonGroupedTemplate>
             <mat-option *ngFor="let item of page.content" [value]="item[valueExpr]">
-                {{item[displayExpr]}}
+              <ng-container *ngIf="displayFunc; else displayExprTemplate">
+                  <span [innerHtml]='displayFunc(item)'></span>
+              </ng-container>
+              <ng-template #displayExprTemplate>{{ item[displayExpr] }}</ng-template>
             </mat-option>
           </ng-template>
 

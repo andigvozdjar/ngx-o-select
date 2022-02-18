@@ -14,5 +14,19 @@
   },
   "dependencies": {
     "tslib": ">=2.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andigvozdjar/ngx-o-select"
+  },
+  "funding": [
+    {
+      "type" : "crypto bitcoin wallet",
+      "url" : "3Q3nJoHSmRAyhiT8yhmoGbguFPuZfiyjjz"
+    },
+    {
+      "type" : "crypto ethereum wallet",
+      "url" : "0xc27dEB78fCEdB90aDCc5d78B7Fe1D992EB2ada50"
+    }
+  ]
 }

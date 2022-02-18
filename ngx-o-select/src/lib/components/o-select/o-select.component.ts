@@ -24,7 +24,7 @@ export class OSelectComponent implements OnInit, AfterViewInit {
   @Input() label!: string;
   @Input() placeholder!: string;
   @Input() requiredMessage?: string;
-
+  @Input() displayFunc?: Function;
 
   @Input() valueExpr!: string;
   @Input() groupBy!: string;
