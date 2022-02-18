@@ -1,0 +1,18 @@
+{
+  "name": "ngx-o-select",
+  "description": "Complex angular material select component with search, virtual scrool pagination, groupBy functionality, multiple select, ",
+  "keywords": ["angular select component", "material select", "angular material select", "complex select component", "complete select component"],
+  "version": "0.0.8",
+  "bugs": {
+    "email": "andigvozdjar@gmail.com"
+  },
+  "author": "Andi Gvožđar andigvozdjar@gmail.com",
+  "peerDependencies": {
+    "@angular/common": ">=12.2.16",
+    "@angular/material": ">=12.2.7",
+    "@angular/core": ">=12.2.0"
+  },
+  "dependencies": {
+    "tslib": ">=2.3.0"
+  }
+}

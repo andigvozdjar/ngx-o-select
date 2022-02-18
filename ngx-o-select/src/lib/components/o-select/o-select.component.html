@@ -1,0 +1,47 @@
+<mat-form-field [appearance]="appearance">
+  <mat-label>{{ label }}</mat-label>
+  <mat-chip-list class="select-chip" [ngModel]="viewValues" *ngIf="multiple && viewValues?.length > 0" [required]="required" #chipListItems [errorStateMatcher]="matcher" multiple>
+      <mat-chip *ngFor="let item of viewValues" color="accent" [selectable]="false" [removable]="true" (removed)="removeSelectedItem(item[valueExpr])">
+          {{item[displayExpr]}}
+          <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+          </button>
+      </mat-chip>
+      <input [matChipInputFor]="chipListItems" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true">
+  </mat-chip-list>
+  <mat-select [attr.name]="name" [ngModel]="value" class="select-component" panelClass="app-select {{ multiple && 'multiple' }}" [required]="required" [disabled]="readOnly" [errorStateMatcher]="matcher" [multiple]="multiple" [disableOptionCentering]="true" [placeholder]="placeholder || selectLocalization?.placeholder || ''">
+      <ng-container *ngIf="searchEnabled" >
+          <input id="searchInput" type="text" autocomplete="off" #searchInput (keydown)="$event.stopPropagation()" (click)="subscribeToSearchInput()" [placeholder]="selectLocalization?.search+'...'" class="search">
+            <button *ngIf="searchInput.value.length > 1" matSuffix mat-icon-button aria-label="Clear" (click)="resetInputValue(); searchInput.value =''">
+              <mat-icon>close</mat-icon>
+            </button>
+      </ng-container>
+      <ng-container *ngIf="page && page.content">
+          <mat-option *ngIf="selectAll && multiple" [value]="selectAllKey">{{ selectLocalization?.selectAll }}</mat-option>
+          <mat-option *ngIf="showClearButton" class="clear-select">{{ selectLocalization?.clearSelection }}</mat-option>
+
+          <ng-container *ngIf="groupBy && groupedContent.length > 0; else nonGroupedTemplate">
+            <mat-optgroup *ngFor="let group of groupedContent" [label]="group.group">
+              <mat-option *ngFor="let child of group.items" [value]="child[valueExpr]">
+                {{child[displayExpr]}}
+              </mat-option>
+            </mat-optgroup>
+          </ng-container>
+
+          <ng-template #nonGroupedTemplate>
+            <mat-option *ngFor="let item of page.content" [value]="item[valueExpr]">
+                {{item[displayExpr]}}
+            </mat-option>
+          </ng-template>
+
+      </ng-container>
+      <mat-option *ngIf="showNoData" disabled>
+          {{ selectLocalization?.noData }}
+      </mat-option>
+      <mat-option *ngIf="!hideSpinner" disabled>
+          <mat-spinner class="select-spinner" diameter="20" [color]="'Accent'"></mat-spinner>
+      </mat-option>
+  </mat-select>
+  <mat-error *ngIf="required">{{ requiredMessage ?? selectLocalization?.required || '' }}</mat-error>
+  <mat-hint *ngIf="hintMessage">{{ hintMessage }}</mat-hint>
+</mat-form-field>
