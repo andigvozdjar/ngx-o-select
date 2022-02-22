@@ -47,7 +47,6 @@ export class OSelectComponent implements OnInit, AfterViewInit {
 
   viewValues: any = []; // for chips
 
-  public previousValue: any;
   public page?: Page<any>;
   public groupedContent: any = []; // for displaying groups in HTML
   public hideSpinner: boolean = false;
@@ -98,7 +97,7 @@ export class OSelectComponent implements OnInit, AfterViewInit {
 
         if(this.dataSource.paginate) {
           this.showNoData = value.totalElements === 0;
-          this.hideSpinner = !this.dataSource.paginate || (value.totalPages === 1 || value.totalElements === 0 || value.last || false);
+          this.hideSpinner = !this.dataSource.paginate || (value.totalElements === 0 || value.last || false);
         }
         else if(!this.dataSource.paginate && this.groupBy) {
           this.groupedContent = this.prepareGroups(this.page.content);

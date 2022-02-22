@@ -47,6 +47,16 @@ public oSelectDataSource!: OSelectOptionsSource<YourClass>;
 ```
 ### 4. Result from "Presentation"
 
+### using display function (It will inject custom HTML in the DOM using innerHtml)
+  in html
+  ``` ...[displayFunc]="displayFunctionOption"...  ```
+  in ts
+  ``` 
+    displayFunctionOption = (item: YourModel) => {
+      return item && item.id ? `<strong>${item.code}:</strong> ${item.description}` : null;
+    }
+  ```
+
 ### For any suggestions/help You could ask me on andigvozdjar@gmail.com
 ## Localization
 
@@ -190,9 +200,9 @@ class OSelectDataSource<T> {
 }
 
 Page<T> {
-  content: T[];
-  totalElements: number; // for hiding spinner if using pagination
-  last: boolean; // for hiding spinner if using pagination
+  content: T[],
+  last?: boolean, // for hiding spinner if using pagination
+  totalElements?: number // for hiding spinner if using pagination and display no data text (SelectLocalization.noData)
 }
 
 export class LoadOptions implements FilterInput {
