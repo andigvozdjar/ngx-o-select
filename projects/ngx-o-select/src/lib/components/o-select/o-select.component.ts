@@ -85,6 +85,10 @@ export class OSelectComponent implements OnInit, AfterViewInit {
       else
         this.getByIdForMultiple();
     }
+
+    if (changes['value'] && !changes['value'].firstChange && changes['value'].currentValue && changes['value'].currentValue[this.valueExpr]) {
+      this.setInitialValues();
+    }
   }
 
   private getData(loadOptions: LoadOptions) {
@@ -240,7 +244,8 @@ export class OSelectComponent implements OnInit, AfterViewInit {
           else
             this.viewValues = [];
         }
-        this.valueChange.emit(this.value);
+        if(this.valueChange && this.valueChange.observers && this.valueChange.observers.length > 0)
+          this.valueChange.emit(this.value);
       })
 
     this.select.openedChange

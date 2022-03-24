@@ -32,7 +32,7 @@
           </ng-container>
 
           <ng-template #nonGroupedTemplate>
-            <mat-option *ngFor="let item of page.content" [value]="item[valueExpr]">
+            <mat-option *ngFor="let item of page.content" [title]="displayFunc ? displayFunc(item) : item[displayExpr]" [value]="item[valueExpr]">
               <ng-container *ngIf="displayFunc; else displayExprTemplate">
                   <span [innerHtml]='displayFunc(item)'></span>
               </ng-container>
