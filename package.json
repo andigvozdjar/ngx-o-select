@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build ngx-o-select",
+    "publish": "GOTO DIST npm publish",
     "watch": "ng build --watch ngx-o-select",
     "test": "ng test"
   },

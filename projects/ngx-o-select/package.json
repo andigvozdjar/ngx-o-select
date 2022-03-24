@@ -2,7 +2,7 @@
   "name": "ngx-o-select",
   "description": "Complex angular material select component with search, virtual scrool pagination, groupBy functionality, multiple select, ",
   "keywords": ["angular select component", "material select", "angular material select", "complex select component", "complete select component"],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bugs": {
     "email": "andigvozdjar@gmail.com"
   },
